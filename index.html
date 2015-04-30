@@ -65,6 +65,25 @@ addLayer(L.mapbox.tileLayer('mas222.i1nib4id'), 'Base Map', 1);
 addLayer(L.mapbox.tileLayer('mulloverit.i2sdobt9'), 'Quake 1', 2);
 addLayer(L.mapbox.featureLayer().loadURL('ManasluTrek.json'), 'Trek', 3);
 
+
+L.mapbox.featureLayer({
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        coordinates: [
+          28.147,
+          84.708 
+        ]
+    },
+    properties: {
+        title: "Mag. 7.8",
+        marker-symbol: "star",
+        marker-size: "medium",
+        marker-color: "#f44"
+    }
+}).addTo(map);
+
+
 function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
@@ -72,7 +91,7 @@ function addLayer(layer, name, zIndex) {
 
     // Create a simple layer switcher that
     // toggles layers on and off.
-    var link = document.createElement('a');
+    /* var link = document.createElement('a');
         link.href = '#';
         link.className = 'active';
         link.innerHTML = name;
@@ -88,7 +107,7 @@ function addLayer(layer, name, zIndex) {
             map.addLayer(layer);
             this.className = 'active';
         }
-    };
+    }; */
 
     layers.appendChild(link);
 }
